@@ -5,5 +5,5 @@ use utoipa::OpenApi;
     crate::handlers::hello::hello_world,
     crate::handlers::hello::hello_world_with_id,
     crate::handlers::hello::create_hello_world
-))]
+))] // register your handlers here for OpenAPI documentation
 pub struct ApiDoc;
