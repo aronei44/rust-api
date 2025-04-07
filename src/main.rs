@@ -1,5 +1,4 @@
 use axum::{
-    routing::get,
     Router,
     response::IntoResponse,
 };
