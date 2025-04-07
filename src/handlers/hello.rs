@@ -56,9 +56,6 @@ pub struct HelloWorldRequest {
 )]
 
 pub async fn create_hello_world(Json(req): Json<HelloWorldRequest>) -> Json<Value> {
-    let body = req.message;
-    let response = json!({
-        "message": format!("Hello, World! with payload: {}", body)
-    });
+    let response = json!(req);
     Json(response)
 }

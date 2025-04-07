@@ -15,11 +15,10 @@ use utoipa::OpenApi;
 #[tokio::main]
 async fn main() {
     // Generate Swagger UI
-    let swagger_ui = SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi());
+    let swagger_ui = SwaggerUi::new("/docs").url("/api-docs/openapi.json", ApiDoc::openapi());
 
     // Build our application
     let app = Router::new()
-        .route("/", get(|| async { "Hello, World!" }))
         .nest("/api", Router::new().merge(create_app()))
         .merge(swagger_ui) // Add Swagger UI
         .fallback(fallback_handler);
